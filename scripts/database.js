@@ -346,6 +346,20 @@ const database = [
         name: "Theo Brown",
         parkAreaId: Math.floor(Math.random() * 12) + 1
     }
+    ],
+    parkInformation = [
+        {   id: 1,
+            parkAreaId: 1,
+            serviceId: 1,
+        },
+        {   id: 2,
+            parkAreaId: 1,
+            serviceId: 2,
+        },
+        {   id: 3,
+            parkAreaId: 1,
+            serviceId: 3,
+        },
     ]
 ]
 
