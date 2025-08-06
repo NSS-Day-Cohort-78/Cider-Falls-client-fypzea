@@ -347,7 +347,7 @@ const database = {
         parkAreaId: Math.floor(Math.random() * 12) + 1
     }
     ],
-    parkInformation: [
+    parkAreaServices: [
         {   id: 1,
             parkAreaId: 1,
             serviceId: 1,
@@ -519,6 +519,6 @@ export const guestsArray = () => {
     return structuredClone(database.guests)
 }
 
-export const parkInformationArray = () => {
-    return structuredClone(database.parkInformation)
+export const parkAreaServicesArray = () => {
+    return structuredClone(database.parkAreaServices)
 }
