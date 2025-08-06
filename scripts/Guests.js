@@ -10,9 +10,6 @@ export const guestList = () => {
                         </li>`
     }
     guestsHTML +="</ol>"
-   
-   
-   
-   "</ol>"
+    return guestsHTML
 
 }
