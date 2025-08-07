@@ -1,0 +1,58 @@
+#container {
+    display: grid;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    min-width: 100%;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    flex-basis: 100%;
+}
+
+#parkareabody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-basis: 70%;
+}
+
+article {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-basis: 30%;
+    align-content: space-around;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    border: solid black;
+    min-width: 10;
+}
+
+#guestbody {
+    min-width: 25%;
+    text-align: center;
+}
+
+#mainbody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+#services {
+    flex-basis: 70%;
+}

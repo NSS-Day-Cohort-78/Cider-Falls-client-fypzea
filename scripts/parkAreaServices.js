@@ -2,14 +2,36 @@ import {
   servicesArray,
   parkAreaServicesArray,
   parkAreasArray,
+  guestsArray,
 } from "./database.js";
+import { servicesList } from "./Services.js";
 
 const parkAreaServices = parkAreaServicesArray();
 const areas = parkAreasArray();
 const services = servicesArray();
+const guests = guestsArray();
+const servicesListHTML = servicesList();
+
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        const parkAreaTarget = clickEvent.target
+        if(parkAreaTarget.dataset.type === "areaname") {
+          let guestCount = 0              
+          for (const guest of guests) {
+            if (guest.parkAreaId === parseInt(parkAreaTarget.dataset.id)){
+                guestCount += 1
+              }
+            }
+            window.alert(`${parkAreaTarget.dataset.name} has ${guestCount} guests.`)          
+        }
+      }
+    )
+    
+        
 
 export const parkAreaServicesList = () => {
-  let parkAreaServicesHeader = "<h2>Park Area Services</h2>";
+  let parkAreaServicesHeader = `<div id="parkareabody"><h2>Park Area Services</h2><div id="services">${servicesListHTML}</div>`
   const northEastSection = areas.filter((area) => {
     return area.section === "northeast";
   });
@@ -45,7 +67,7 @@ export const parkAreaServicesList = () => {
         }
     }
 
-    let parkAreaServicesHeaderHtml = `<section data-type="area" data-section="${area.section}"><h2>${area.name}</h2>`;
+    let parkAreaServicesHeaderHtml = `<section data-section="${area.section}"><h2 data-id="${area.id}" data-type="areaname" data-name="${area.name}">${area.name}</h2>`;
     let parkAreaServiceHtml = newParkAreaArray.map((parkArea) => {
       return `<div>${parkArea.serviceName}</div>`;
     });
@@ -72,7 +94,7 @@ export const parkAreaServicesList = () => {
         }
     }
 
-    let parkAreaServicesHeaderHtml = `<section data-type="area" data-section="${area.section}"><h2>${area.name}</h2>`;
+    let parkAreaServicesHeaderHtml = `<section data-section="${area.section}"><h2 data-id="${area.id}" data-type="areaname" data-name="${area.name}">${area.name}</h2>`;
     let parkAreaServiceHtml = newParkAreaArray.map((parkArea) => {
       return `<div>${parkArea.serviceName}</div>`;
     });
@@ -99,7 +121,7 @@ export const parkAreaServicesList = () => {
         }
     }
 
-    let parkAreaServicesHeaderHtml = `<section data-type="area" data-section="${area.section}"><h2>${area.name}</h2>`;
+    let parkAreaServicesHeaderHtml = `<section data-section="${area.section}"><h2 data-id="${area.id}" data-type="areaname" data-name="${area.name}">${area.name}</h2>`;
     let parkAreaServiceHtml = newParkAreaArray.map((parkArea) => {
       return `<div>${parkArea.serviceName}</div>`;
     });
@@ -126,7 +148,7 @@ export const parkAreaServicesList = () => {
         }
     }
 
-    let parkAreaServicesHeaderHtml = `<section data-type="area" data-section="${area.section}"><h2>${area.name}</h2>`;
+    let parkAreaServicesHeaderHtml = `<section data-section="${area.section}"><h2 data-id="${area.id}" data-type="areaname" data-name="${area.name}">${area.name}</h2>`;
     let parkAreaServiceHtml = newParkAreaArray.map((parkArea) => {
       return `<div>${parkArea.serviceName}</div>`;
     });
@@ -153,7 +175,7 @@ export const parkAreaServicesList = () => {
         }
     }
 
-    let parkAreaServicesHeaderHtml = `<section data-type="area" data-section="${area.section}"><h2>${area.name}</h2>`;
+    let parkAreaServicesHeaderHtml = `<section data-section="${area.section}"><h2 data-id="${area.id}" data-type="areaname" data-name="${area.name}">${area.name}</h2>`;
     let parkAreaServiceHtml = newParkAreaArray.map((parkArea) => {
       return `<div>${parkArea.serviceName}</div>`;
     });
@@ -180,7 +202,7 @@ export const parkAreaServicesList = () => {
         }
     }
 
-    let parkAreaServicesHeaderHtml = `<section data-type="area" data-section="${area.section}"><h2>${area.name}</h2>`;
+    let parkAreaServicesHeaderHtml = `<section data-section="${area.section}"><h2 data-id="${area.id}" data-type="areaname" data-name="${area.name}">${area.name}</h2>`;
     let parkAreaServiceHtml = newParkAreaArray.map((parkArea) => {
       return `<div>${parkArea.serviceName}</div>`;
     });
@@ -189,6 +211,6 @@ export const parkAreaServicesList = () => {
     let html = parkAreaServicesHeaderHtml + parkAreaServiceHtml;
     parkAreaServicesHeader += html;
   }
-  parkAreaServicesHeader += `</article>`
+  parkAreaServicesHeader += `</article></div>`
   return parkAreaServicesHeader;
 };
